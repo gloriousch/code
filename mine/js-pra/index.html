@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 500px;
+        }
+
+        .box {
+            height: 150px;
+            width: 150px;
+            background: #bbbbff;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 5%;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        .box.a1,
+        .box.a2,
+        .box.a3 {
+            float: left;
+            /* background: #000; */
+        }
+
+        .box.a4,
+        .box.a5,
+        .box.a6 {
+            float: left;
+            /* margin-top: 105px; */
+            /* background: #000; */
+        }
+
+        .box.a7,
+        .box.a8,
+        .box.a9 {
+            float: left;
+            /* margin-top: 210px; */
+            /* background: #000; */
+        }
+
+        /* .box.a1.a2.a3{
+        float: left;
+        background: #000;
+    } */
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="box a1">100元</div>
+        <div class="box a2">豪华游艇</div>
+        <div class="box a3">蒙古海景房</div>
+        <div class="box a4">兰博基尼五元代金券</div>
+        <div class="box a5">谢谢惠顾</div>
+        <div class="box a6">兰博基尼</div>
+        <div class="box a7">康师傅冰红茶</div>
+        <div class="box a8">撒哈拉海景房</div>
+        <div class="box a9">罗布泊鱼塘</div>
+    </div>
+    <input type="button" value="开始" id="btn1">
+    <input type="button" value="结束" id="btn2">
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var dd = document.getElementsByClassName('box');
+        var inter;
+        var isStart = false;
+        btn1.onclick = function () {
+            var x = Math.floor(Math.random() * 9);
+            // console.log(z);
+            // console.log('box a' +z);
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            // var aa= document.querySelector('.box.a'+z);
+            // console.log(aa);
+            // console.log("r','+g,','+b");
+        
+            if (!isStart) {
+                isStart = true
+                inter = setInterval(function setcolor() {
+                    var z = Math.floor(Math.random() * 9);
+                    var cc = document.getElementsByClassName('box')[z];
+                    // console.log(cc);
+                    // cc.setAttribute('style', 'background-color: blue');
+                    cc.style.background=bg3();
+                    console.log(1);
+                }, 1000);
+            }
+
+
+        }
+
+        btn2.addEventListener('click', function () {
+            var dd = document.getElementsByClassName('box')
+            var i;
+            for (i = 0; i < dd.length; i++) {
+                var ee = document.getElementsByClassName('box')[i];
+                // console.log(ee)
+                ee.setAttribute('style', 'background-color: #bbbbff')
+            }
+            // vv.setAttribute('style', 'background-color: blue')
+            if (isStart) {
+                clearInterval(inter);
+                isStart = false
+            }
+            
+        })
+
+        function bg3() {
+            for (i = 0; i < dd.length; i++) {
+                var ee = document.getElementsByClassName('box')[i];
+                ee.setAttribute('style', 'background-color: #bbbbff')
+            }
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return "rgb(" + r + ',' + g + ',' + b + ")";
+        }
+    </script>
+</body>
+
+</html>
